@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits | {{ parent() }}{% endblock %}
+{% block stylesheets %}
+        <link rel="stylesheet" href="{{ css }}" type="text/css">
+        {% endblock %}
+{% block body %}
+
+<h1> Mes bières</h1>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+
+            {% for beer in beers %}
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ beer.img }}" class="card-img-top" alt="bière">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ beer.name }}</h5>
+                        <p class="card-text">{{ beer.desc }} </p>
+                        <a href="#" class="btn btn-primary">Acheter</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
